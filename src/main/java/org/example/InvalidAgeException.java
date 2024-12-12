@@ -1,7 +1,7 @@
 package org.example;
 
 public class InvalidAgeException extends Exception {
-    public InvalidAgeException(int age,String message) {
+    public InvalidAgeException(String message) {
         super(message);
     }
 }

@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -98,6 +99,9 @@ public class Main {
                     if (name != null){
                         System.out.println("Entrez un âge : ");
                         int age = scanner.nextInt();
+                        if (age < 0 ){
+                            throw new InvalidAgeException("L'âge doit être supérieur à 0");
+                        }
                         studentsList.add(new Student(name, age));
                     }
                 }else if (choice == 3) {
@@ -110,8 +114,8 @@ public class Main {
 
             }
 
-        } catch (RuntimeException e) {
-            throw new RuntimeException(e);
+        } catch (InvalidAgeException | InputMismatchException ex){
+            System.out.println(ex.getMessage());
         }
 
 
